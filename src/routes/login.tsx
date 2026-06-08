@@ -6,7 +6,7 @@ import { z } from "zod";
 import { zodValidator, fallback } from "@tanstack/zod-adapter";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/context/AuthContext";
-import logoAsset from "@/assets/kosmo-logo.png.asset.json";
+import logoAsset from "@/assets/kosmo-logo.png";
 
 const searchSchema = z.object({
   redirect: fallback(z.string(), "/dashboard").default("/dashboard"),
@@ -50,7 +50,7 @@ function LoginPage() {
         className="w-full max-w-md glass-panel rounded-3xl p-8"
       >
         <Link to="/" className="flex justify-center mb-6">
-          <img src={logoAsset.url} alt="KOSMO" className="h-8" />
+          <img src={logoAsset} alt="KOSMO" className="h-8" />
         </Link>
         <h1 className="text-2xl font-bold text-center">Welcome back</h1>
         <p className="mt-1 text-sm text-muted-foreground text-center">

@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { LogOut, User } from "lucide-react";
 import { useState } from "react";
-import logoAsset from "@/assets/kosmo-logo.png.asset.json";
+import logoAsset from "@/assets/kosmo-logo.png";
 import { useAuth } from "@/context/AuthContext";
 
 const links = [
@@ -26,7 +26,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-6 mt-4">
         <div className="glass-panel rounded-2xl flex items-center justify-between px-4 py-2.5">
           <Link to="/" className="flex items-center gap-2 group">
-            <img src={logoAsset.url} alt="KOSMO" className="h-7 w-auto transition-transform group-hover:scale-105" />
+            <img src={logoAsset} alt="KOSMO" className="h-7 w-auto transition-transform group-hover:scale-105" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
