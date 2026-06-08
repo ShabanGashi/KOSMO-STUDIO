@@ -9,12 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as RoomunityRouteImport } from './routes/roomunity'
 import { Route as RegisterRouteImport } from './routes/register'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as MarketplaceRouteImport } from './routes/marketplace'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CategoriesRouteImport } from './routes/categories'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BecomeCreatorRouteImport } from './routes/become-creator'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductIdRouteImport } from './routes/product.$id'
@@ -29,9 +37,29 @@ import { Route as AppDashboardEarningsRouteImport } from './routes/_app.dashboar
 import { Route as AppDashboardAnalyticsRouteImport } from './routes/_app.dashboard.analytics'
 import { Route as AppDashboardEditIdRouteImport } from './routes/_app.dashboard.edit.$id'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoomunityRoute = RoomunityRouteImport.update({
+  id: '/roomunity',
+  path: '/roomunity',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -49,14 +77,34 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CategoriesRoute = CategoriesRouteImport.update({
   id: '/categories',
   path: '/categories',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BecomeCreatorRoute = BecomeCreatorRouteImport.update({
   id: '/become-creator',
   path: '/become-creator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppRoute = AppRouteImport.update({
@@ -126,12 +174,20 @@ const AppDashboardEditIdRoute = AppDashboardEditIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/become-creator': typeof BecomeCreatorRoute
+  '/blog': typeof BlogRoute
   '/categories': typeof CategoriesRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/login': typeof LoginRoute
   '/marketplace': typeof MarketplaceRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/register': typeof RegisterRoute
+  '/roomunity': typeof RoomunityRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
   '/dashboard': typeof AppDashboardRouteWithChildren
   '/product/$id': typeof ProductIdRoute
   '/dashboard/analytics': typeof AppDashboardAnalyticsRoute
@@ -146,12 +202,20 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/become-creator': typeof BecomeCreatorRoute
+  '/blog': typeof BlogRoute
   '/categories': typeof CategoriesRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/login': typeof LoginRoute
   '/marketplace': typeof MarketplaceRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/register': typeof RegisterRoute
+  '/roomunity': typeof RoomunityRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
   '/dashboard': typeof AppDashboardRouteWithChildren
   '/product/$id': typeof ProductIdRoute
   '/dashboard/analytics': typeof AppDashboardAnalyticsRoute
@@ -168,12 +232,20 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_app': typeof AppRouteWithChildren
+  '/about': typeof AboutRoute
   '/become-creator': typeof BecomeCreatorRoute
+  '/blog': typeof BlogRoute
   '/categories': typeof CategoriesRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/login': typeof LoginRoute
   '/marketplace': typeof MarketplaceRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/register': typeof RegisterRoute
+  '/roomunity': typeof RoomunityRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
   '/_app/dashboard': typeof AppDashboardRouteWithChildren
   '/product/$id': typeof ProductIdRoute
   '/_app/dashboard/analytics': typeof AppDashboardAnalyticsRoute
@@ -190,12 +262,20 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/become-creator'
+    | '/blog'
     | '/categories'
+    | '/contact'
+    | '/cookies'
     | '/login'
     | '/marketplace'
     | '/pricing'
+    | '/privacy'
     | '/register'
+    | '/roomunity'
+    | '/support'
+    | '/terms'
     | '/dashboard'
     | '/product/$id'
     | '/dashboard/analytics'
@@ -210,12 +290,20 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/become-creator'
+    | '/blog'
     | '/categories'
+    | '/contact'
+    | '/cookies'
     | '/login'
     | '/marketplace'
     | '/pricing'
+    | '/privacy'
     | '/register'
+    | '/roomunity'
+    | '/support'
+    | '/terms'
     | '/dashboard'
     | '/product/$id'
     | '/dashboard/analytics'
@@ -231,12 +319,20 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_app'
+    | '/about'
     | '/become-creator'
+    | '/blog'
     | '/categories'
+    | '/contact'
+    | '/cookies'
     | '/login'
     | '/marketplace'
     | '/pricing'
+    | '/privacy'
     | '/register'
+    | '/roomunity'
+    | '/support'
+    | '/terms'
     | '/_app/dashboard'
     | '/product/$id'
     | '/_app/dashboard/analytics'
@@ -253,22 +349,58 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRouteWithChildren
+  AboutRoute: typeof AboutRoute
   BecomeCreatorRoute: typeof BecomeCreatorRoute
+  BlogRoute: typeof BlogRoute
   CategoriesRoute: typeof CategoriesRoute
+  ContactRoute: typeof ContactRoute
+  CookiesRoute: typeof CookiesRoute
   LoginRoute: typeof LoginRoute
   MarketplaceRoute: typeof MarketplaceRoute
   PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
   RegisterRoute: typeof RegisterRoute
+  RoomunityRoute: typeof RoomunityRoute
+  SupportRoute: typeof SupportRoute
+  TermsRoute: typeof TermsRoute
   ProductIdRoute: typeof ProductIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roomunity': {
+      id: '/roomunity'
+      path: '/roomunity'
+      fullPath: '/roomunity'
+      preLoaderRoute: typeof RoomunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/register': {
       id: '/register'
       path: '/register'
       fullPath: '/register'
       preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -292,6 +424,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/categories': {
       id: '/categories'
       path: '/categories'
@@ -299,11 +445,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CategoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/become-creator': {
       id: '/become-creator'
       path: '/become-creator'
       fullPath: '/become-creator'
       preLoaderRoute: typeof BecomeCreatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app': {
@@ -441,12 +601,20 @@ const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRouteWithChildren,
+  AboutRoute: AboutRoute,
   BecomeCreatorRoute: BecomeCreatorRoute,
+  BlogRoute: BlogRoute,
   CategoriesRoute: CategoriesRoute,
+  ContactRoute: ContactRoute,
+  CookiesRoute: CookiesRoute,
   LoginRoute: LoginRoute,
   MarketplaceRoute: MarketplaceRoute,
   PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
   RegisterRoute: RegisterRoute,
+  RoomunityRoute: RoomunityRoute,
+  SupportRoute: SupportRoute,
+  TermsRoute: TermsRoute,
   ProductIdRoute: ProductIdRoute,
 }
 export const routeTree = rootRouteImport

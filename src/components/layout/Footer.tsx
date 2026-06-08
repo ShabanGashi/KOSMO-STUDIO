@@ -1,12 +1,55 @@
+import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/kosmo-logo.png.asset.json";
 
 const cols = [
-  { title: "About", links: ["About KOSMO", "Premium digital marketplace"] },
-  { title: "Marketplace", links: ["Home", "About", "Blog", "Contact"] },
-  { title: "Categories", links: ["Browse", "Categories", "Pricing", "Templates"] },
-  { title: "Support", links: ["Support", "Contact us", "Roomunity"] },
-  { title: "Terms", links: ["Privacy", "Terms", "Cookies"] },
-  { title: "Contact", links: ["Privacy", "Contact"] },
+  {
+    title: "About",
+    links: [
+      { label: "About KOSMO", href: "/about" },
+      { label: "Premium digital marketplace", href: "/pricing" },
+    ],
+  },
+  {
+    title: "Marketplace",
+    links: [
+      { label: "Home", href: "/marketplace" },
+      { label: "About", href: "/about" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Categories",
+    links: [
+      { label: "Browse", href: "/marketplace" },
+      { label: "Categories", href: "/categories" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Templates", href: "/marketplace" },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
+      { label: "Support", href: "/support" },
+      { label: "Contact us", href: "/contact" },
+      { label: "Roomunity", href: "/roomunity" },
+    ],
+  },
+  {
+    title: "Terms",
+    links: [
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+      { label: "Cookies", href: "/cookies" },
+    ],
+  },
+  {
+    title: "Contact",
+    links: [
+      { label: "Privacy", href: "/privacy" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
 ];
 
 export function Footer() {
@@ -19,7 +62,11 @@ export function Footer() {
               <div className="text-foreground font-semibold mb-3">{c.title}</div>
               <ul className="space-y-2 text-muted-foreground">
                 {c.links.map((l) => (
-                  <li key={l}><a href="#" className="hover:text-foreground transition">{l}</a></li>
+                  <li key={l.label}>
+                    <Link to={l.href} className="hover:text-foreground transition">
+                      {l.label}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </div>

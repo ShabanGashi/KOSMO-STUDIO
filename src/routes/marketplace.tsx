@@ -65,13 +65,13 @@ function Marketplace() {
           </motion.div>
 
           <div className="mt-8 glass-panel rounded-2xl p-3 flex flex-col md:flex-row gap-3">
-            <div className="flex items-center flex-1 gap-2 px-3 rounded-xl bg-white/5 border border-white/10">
+            <div className="flex items-center flex-1 gap-2 px-4 rounded-3xl bg-white/5 border border-white/10 shadow-sm shadow-white/10">
               <Search className="h-4 w-4 text-muted-foreground" />
               <input
                 value={q}
                 onChange={(e) => navigate({ search: { q: e.target.value, category, sort } })}
                 placeholder="Search templates, photos, assets…"
-                className="bg-transparent outline-none text-sm flex-1 py-2.5 placeholder:text-muted-foreground"
+                className="bg-transparent outline-none text-sm flex-1 py-3 placeholder:text-muted-foreground transition"
               />
             </div>
             <div className="flex items-center gap-2">
@@ -79,7 +79,7 @@ function Marketplace() {
               <select
                 value={sort}
                 onChange={(e) => navigate({ search: { q, category, sort: e.target.value as typeof sort } })}
-                className="bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/40"
+                className="input-field min-w-[180px] text-sm"
               >
                 <option value="trending">Trending</option>
                 <option value="newest">Newest</option>
